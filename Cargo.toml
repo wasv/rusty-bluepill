@@ -1,0 +1,30 @@
+[package]
+name = "bluepill"
+version = "0.1.0"
+authors = ["William Stevens <contact@wastevensv.com>"]
+
+[dependencies]
+stm32f103xx-hal = { git = "https://github.com/japaric/stm32f103xx-hal" }
+cortex-m = "0.4.3"
+cortex-m-semihosting = "0.2.0"
+nb = "0.1.1"
+
+[dependencies.stm32f103xx]
+features = ["rt"]
+version = "0.8.0"
+    
+[dependencies.cortex-m-rt]
+version = "0.3.12"
+# Comment for the panic example.
+features = ["abort-on-panic"]
+
+[profile.dev]
+debug = false
+debug-assertions = false
+incremental = false
+lto = true
+opt-level = 3
+
+[profile.release]
+incremental = false
+lto = true
